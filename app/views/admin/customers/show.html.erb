@@ -2,7 +2,7 @@
   Hello <%= "#{@customer.name} #{@customer.surname}" %>
 
   <h3>Create New Account</h3>
-  <%= form_tag("/customers/#{@customer.id}/accounts", method: "post", remote: true, id: 'create-account-form') do %>
+  <%= form_tag("/api/v1/customers/#{@customer.id}/accounts", method: "post", remote: true, id: 'create-account-form') do %>
     <%= label_tag(:initial_credit, "Initial credit") %>
     <br>
     <%= number_field_tag(:initial_credit) %>
