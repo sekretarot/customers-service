@@ -1,8 +1,7 @@
 class CustomersController < ApplicationController
 
   def show
-    customer = Rails.cache.fetch(params[:id].to_i)
-    render json: customer.to_json
+    @customer = Rails.cache.fetch(params[:id].to_i)
   end
 
   def create_account

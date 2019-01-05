@@ -7,4 +7,9 @@ class Customer
     @surname = init_hash[:surname]
     @id = init_hash[:id]
   end
+
+  def accounts
+    AccountsService.new(self).get_accounts
+  end
+
 end

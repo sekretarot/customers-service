@@ -11,4 +11,9 @@ class AccountsService
     self.class.post("/accounts", options)
   end
 
+  def get_accounts
+    options = {query: {customer_id: @customer.id}}
+    self.class.get("/accounts/customer", options).parsed_response
+  end
+
 end
