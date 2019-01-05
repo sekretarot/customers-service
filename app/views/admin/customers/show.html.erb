@@ -1,0 +1,51 @@
+<div>
+  Hello <%= "#{@customer.name} #{@customer.surname}" %>
+
+  <h3>Create New Account</h3>
+  <%= form_tag("/customers/#{@customer.id}/accounts", method: "post", remote: true, id: 'create-account-form') do %>
+    <%= label_tag(:initial_credit, "Initial credit") %>
+    <br>
+    <%= number_field_tag(:initial_credit) %>
+    <%= submit_tag("Create") %>
+  <% end %>
+
+  <h3>Accounts</h3>
+  <% @customer.accounts.each do |account| %>
+    <br>
+    <div class="account ui-accordion">
+      <div class="ui-accordion-header">
+        Number: <%= account["number"] %>
+        Balance: <%= account["balance"] %>
+      </div>
+
+      <div class="ui-accordion-content">
+        <% account["transactions"].each do |transaction| %>
+          Id: <%= transaction["id"] %>
+          Amount: <%= transaction["amount"] %>
+          <br>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+        $(".account").accordion({
+            animate: 200,
+            collapsible: true,
+            active: false
+        });
+
+        $("form#create-account-form").on('ajax:success', function (event, data, status, xhr) {
+            alert("Account succesfully created.");
+            location.reload();
+        });
+
+        $("form#create-account-form").on('ajax:error', function (event, xhr, status, error) {
+            alert("Something went wrong.");
+        });
+    })
+</script>
+
