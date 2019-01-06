@@ -35,7 +35,7 @@
       </div>
     <% end if @customer.accounts %>
   <% else %>
-    <%= "Accounts data not available at the moment" %>
+    Accounts data not available at the moment
   <% end %>
 
 </div>
@@ -55,6 +55,7 @@
 
         $("form#create-account-form").on('ajax:error', function (event, xhr, status, error) {
             alert("Something went wrong.");
+            location.reload();
         });
     })
 </script>
