@@ -1,1 +1,5 @@
-accounts_service_url: http://localhost:3001
+# For Mac
+accounts_service_url: http://docker.for.mac.localhost:3001
+
+# For Windows
+#accounts_service_url: http://docker.for.win.localhost:3001
