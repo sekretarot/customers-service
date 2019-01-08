@@ -12,7 +12,7 @@ Then, from the repository folder run:
 This starts your Rails server listening at port 3000 in a Docker container. 
 
 ### Example usage
-####Web admin interface
+#### Web admin interface
 
 `/admin/customers/3`
 
